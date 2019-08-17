@@ -5,7 +5,7 @@ from base64 import b64decode
 
 from ..items import ProxyDbItem
 
-from scrapy.utils.response import open_in_browser
+
 class Proxy(scrapy.Spider):
     name = "proxy"
     start_urls = ['http://proxydb.net/']
@@ -29,4 +29,3 @@ class Proxy(scrapy.Spider):
             port = int(re.search(r'\d+', port).group()) + nnum
             yield ProxyDbItem(ip_address=ip,
                               port=port)
-        open_in_browser(response)
